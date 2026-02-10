@@ -1,76 +1,104 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+// import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
     {
-        title: 'E-commerce Platform',
-        category: 'Web Development',
-        image: 'https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80',
-        description: 'A full-featured online store with payment integration and inventory management.',
+        title: 'Cloud Infrastructure Ops',
+        category: 'Services',
+        description: 'High-availability AWS server architectures and automated deployment pipelines for global scale.',
+        image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
     },
     {
-        title: 'Fitness Tracker App',
-        category: 'Mobile App',
-        image: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
-        description: 'Cross-platform mobile application for tracking workouts and nutrition.',
+        title: 'Custom ERP Solution',
+        category: 'Development',
+        description: 'Scalable internal business tools and management dashboards built with React and Node.js.',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
     },
     {
-        title: 'SaaS Dashboard',
-        category: 'Web Application',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-        description: 'Analytics dashboard for visualizing business metrics and performance.',
+        title: 'Real-time Data Sync',
+        category: 'Development',
+        description: 'Low-latency backend systems and WebSocket integrations for live collaborative platforms.',
+        image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80',
     },
 ];
 
 const Showcase = () => {
     return (
-        <div className="bg-white dark:bg-gray-900 py-24 sm:py-32" id="work">
+        <section className="py-24 sm:py-32 bg-white dark:bg-slate-950" id="work">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">What We Build</h2>
-                    <p className="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                        Checkout some of our recent projects.
-                    </p>
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                    <div className="max-w-2xl">
+                        <motion.h2
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="text-brand-600 font-bold tracking-tight text-sm uppercase mb-4"
+                        >
+                            Portfolio
+                        </motion.h2>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl"
+                        >
+                            What We’ve <span className="text-gradient">Worked On</span>
+                        </motion.p>
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="mt-6 text-lg text-slate-600 dark:text-slate-400"
+                        >
+                            New studio, experienced team. We’ve helped dozens of companies build and scale. Here are some of our highlight projects.
+                        </motion.p>
+                    </div>
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <a href="/#contact" className="btn-secondary whitespace-nowrap">View All Projects</a>
+                    </motion.div>
                 </div>
-                <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {projects.map((project, index) => (
-                        <motion.article
+                        <motion.div
                             key={project.title}
-                            className="flex flex-col items-start justify-between"
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
+                            className="group relative rounded-[2rem] overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800"
                         >
-                            <div className="relative w-full">
+                            <div className="aspect-[16/10] overflow-hidden">
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2] shadow-md hover:shadow-xl transition-shadow duration-300"
+                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                 />
-                                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
                             </div>
-                            <div className="max-w-xl">
-                                <div className="mt-8 flex items-center gap-x-4 text-xs">
-                                    <span className="relative z-10 rounded-full bg-gray-50 dark:bg-gray-800 px-3 py-1.5 font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
-                                        {project.category}
-                                    </span>
-                                </div>
-                                <div className="group relative">
-                                    <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300">
-                                        <a href="#">
-                                            <span className="absolute inset-0" />
-                                            {project.title}
-                                        </a>
-                                    </h3>
-                                    <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 dark:text-gray-400">{project.description}</p>
-                                </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                                <span className="text-brand-400 text-xs font-bold uppercase mb-2 tracking-widest">{project.category}</span>
+                                <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
+                                <p className="text-slate-300 text-sm mb-6 line-clamp-2">{project.description}</p>
+                                {/* <div className="flex gap-4">
+                                    <button className="p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-white transition-colors">
+                                        <ExternalLink className="h-5 w-5" />
+                                    </button>
+                                    <button className="p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-white transition-colors">
+                                        <Github className="h-5 w-5" />
+                                    </button>
+                                </div> */}
                             </div>
-                        </motion.article>
+                        </motion.div>
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

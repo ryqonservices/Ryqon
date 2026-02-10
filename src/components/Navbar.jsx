@@ -1,98 +1,130 @@
-import React, { useState } from 'react';
-import { Menu, X, Code } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const navigation = [
-    { name: 'Home', href: '#' },
-    { name: 'Services', href: '#services' },
-    { name: 'Work', href: '#work' },
-    { name: 'Process', href: '#process' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Work', href: '/#work' },
+    { name: 'Process', href: '/#process' },
+    { name: 'Contact', href: '/#contact' },
 ];
 
 const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
-        <header className="absolute inset-x-0 top-0 z-50">
-            <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div className="flex lg:flex-1">
-                    <a href="#" className="-m-1.5 p-1.5 flex items-center gap-2">
-                        <span className="sr-only">Ryqon</span>
-                        <Code className="h-8 w-auto text-indigo-600 dark:text-indigo-400" />
-                        <span className="font-bold text-xl tracking-tight text-gray-900 dark:text-white">Ryqon</span>
+        <header
+            className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'glass-nav py-2' : 'bg-transparent py-4'
+                }`}
+        >
+            <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8" aria-label="Global">
+                <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="flex lg:flex-1"
+                >
+                    <a href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
+                        <img src="/Ryqon logo.png" alt="Ryqon Logo" className={`${scrolled ? 'h-16' : 'h-20'} w-auto transition-all duration-300`} />
                     </a>
-                </div>
+                </motion.div>
+
                 <div className="flex lg:hidden">
                     <button
                         type="button"
-                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-200"
+                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-700 dark:text-slate-200"
                         onClick={() => setMobileMenuOpen(true)}
                     >
                         <span className="sr-only">Open main menu</span>
                         <Menu className="h-6 w-6" aria-hidden="true" />
                     </button>
                 </div>
-                <div className="hidden lg:flex lg:gap-x-12">
+
+                <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="hidden lg:flex lg:gap-x-10"
+                >
                     {navigation.map((item) => (
-                        <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                        <a
+                            key={item.name}
+                            href={item.href}
+                            className="text-sm font-medium leading-6 text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 transition-colors relative group"
+                        >
                             {item.name}
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-600 transition-all duration-300 group-hover:initial group-hover:w-full"></span>
                         </a>
                     ))}
-                </div>
-                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#contact" className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">
-                        Hire Us <span aria-hidden="true">&rarr;</span>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="hidden lg:flex lg:flex-1 lg:justify-end"
+                >
+                    <a href="/#contact" className="btn-primary py-2 px-6 text-sm">
+                        Start a Project <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
-                </div>
+                </motion.div>
             </nav>
-            {/* Mobile menu */}
-            {mobileMenuOpen && (
-                <div className="lg:hidden" role="dialog" aria-modal="true">
-                    <div className="fixed inset-0 z-50" />
-                    <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 shadow-xl">
+
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, x: '100%' }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: '100%' }}
+                        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                        className="fixed inset-0 z-50 bg-white dark:bg-slate-950 px-6 py-6 lg:hidden"
+                    >
                         <div className="flex items-center justify-between">
-                            <a href="#" className="-m-1.5 p-1.5 flex items-center gap-2">
-                                <span className="sr-only">Ryqon</span>
-                                <Code className="h-8 w-auto text-indigo-600 dark:text-indigo-400" />
-                                <span className="font-bold text-xl text-gray-900 dark:text-white">Ryqon</span>
+                            <a href="/" className="-m-1.5 p-1.5">
+                                <img src="/Ryqon logo.png" alt="Ryqon Logo" className="h-16 w-auto" />
                             </a>
                             <button
                                 type="button"
-                                className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-200"
+                                className="-m-2.5 rounded-md p-2.5 text-slate-700 dark:text-slate-200"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 <span className="sr-only">Close menu</span>
                                 <X className="h-6 w-6" aria-hidden="true" />
                             </button>
                         </div>
-                        <div className="mt-6 flow-root">
-                            <div className="-my-6 divide-y divide-gray-500/10">
-                                <div className="space-y-2 py-6">
-                                    {navigation.map((item) => (
-                                        <a
-                                            key={item.name}
-                                            href={item.href}
-                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
-                                            onClick={() => setMobileMenuOpen(false)}
-                                        >
-                                            {item.name}
-                                        </a>
-                                    ))}
-                                </div>
-                                <div className="py-6">
+                        <div className="mt-10 flow-root">
+                            <div className="space-y-2 py-6">
+                                {navigation.map((item) => (
                                     <a
-                                        href="#contact"
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
+                                        key={item.name}
+                                        href={item.href}
+                                        className="-mx-3 block rounded-lg px-3 py-4 text-xl font-bold text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-all"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
-                                        Hire Us
+                                        {item.name}
                                     </a>
-                                </div>
+                                ))}
+                            </div>
+                            <div className="py-6">
+                                <a
+                                    href="/#contact"
+                                    className="flex w-full btn-primary justify-center text-lg"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    Start a Project
+                                </a>
                             </div>
                         </div>
-                    </div>
-                </div>
-            )}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 };

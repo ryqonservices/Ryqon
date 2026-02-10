@@ -1,68 +1,169 @@
 import React from 'react';
-import { Smartphone, Monitor, Database, Wrench } from 'lucide-react';
+import { Smartphone, Monitor, Database, Wrench, Megaphone, TrendingUp, Target, BarChart3, ArrowUpRight, Globe, Server, Share2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const services = [
+const devServices = [
     {
         title: 'Mobile App Development',
-        description: 'Native and Cross-platform apps using Flutter and React Native. High performance and smooth UI.',
+        description: 'Native and Cross-platform apps using Flutter and React Native with high performance.',
         icon: Smartphone,
+        color: 'bg-blue-500',
     },
     {
         title: 'Web Development',
         description: 'Scalable web applications with React, Next.js, and modern CSS frameworks.',
         icon: Monitor,
+        color: 'bg-indigo-500',
     },
     {
-        title: 'Backend & API Integration',
-        description: 'Robust server-side solutions using Node.js, Python, or Go. Secure and scalable APIs.',
-        icon: Database,
+        title: 'Hosting & Deployment',
+        description: 'Professional setup for Play Store, App Store, and cloud hosting with AWS & Google Cloud.',
+        icon: Server,
+        color: 'bg-blue-600',
     },
     {
         title: 'Maintenance & Support',
-        description: 'Ongoing support, bug fixes, and performance optimization to keep your app running smoothly.',
+        description: 'Ongoing support, bug fixes, and performance optimization to keep your product running smoothly.',
         icon: Wrench,
+        color: 'bg-slate-500',
     },
 ];
 
+const marketingServices = [
+    {
+        title: 'Strategy & Planning',
+        description: 'Comprehensive digital strategy and brand positioning to establish a dominant online presence.',
+        icon: Target,
+        color: 'bg-rose-500',
+    },
+    {
+        title: 'Social Media & Content',
+        description: 'Strategic social media management and content calendars designed to drive engagement.',
+        icon: Megaphone,
+        color: 'bg-orange-500',
+    },
+    {
+        title: 'Paid Ads & Leads',
+        description: 'Meta platform advertising and lead generation campaigns optimized for conversion.',
+        icon: TrendingUp,
+        color: 'bg-emerald-500',
+    },
+    {
+        title: 'Analytics & Reporting',
+        description: 'Detailed performance tracking and reporting to identify growth opportunities and ROI.',
+        icon: BarChart3,
+        color: 'bg-cyan-500',
+    },
+];
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+};
+
 const Services = () => {
     return (
-        <div className="bg-gray-50 dark:bg-gray-800 py-24 sm:py-32" id="services">
+        <section className="py-24 sm:py-32 bg-slate-50 dark:bg-slate-900/30" id="services">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl lg:text-center">
-                    <h2 className="text-base font-semibold leading-7 text-indigo-600 dark:text-indigo-400">What We Do</h2>
-                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                        Everything you need to verify your idea
-                    </p>
-                    <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                        From concept to deployment, we handle the entire development lifecycle with precision and care.
-                    </p>
+                <div className="mx-auto max-w-2xl text-center mb-20">
+                    <motion.h2
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="text-brand-600 dark:text-brand-400 font-bold tracking-tight text-sm uppercase mb-4"
+                    >
+                        Expertise
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl"
+                    >
+                        Solutions built for <span className="text-gradient">Impact</span>
+                    </motion.p>
                 </div>
-                <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-                    <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-                        {services.map((service, index) => (
+
+                {/* Development Services Row */}
+                <div className="mb-16">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+                        <span className="h-px w-8 bg-brand-500"></span>
+                        Development Services
+                    </h3>
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                    >
+                        {devServices.map((service) => (
                             <motion.div
                                 key={service.title}
-                                className="relative pl-16 p-6 rounded-2xl hover:bg-white dark:hover:bg-gray-700 hover:shadow-lg transition-all"
-                                whileHover={{ scale: 1.02 }}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
+                                variants={itemVariants}
+                                className="card-modern group"
                             >
-                                <dt className="text-base font-semibold leading-7 text-gray-900 dark:text-white">
-                                    <div className="absolute left-0 top-6 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-                                        <service.icon className="h-6 w-6 text-white" aria-hidden="true" />
-                                    </div>
+                                <div className={`h-12 w-12 rounded-2xl ${service.color} flex items-center justify-center text-white mb-6 group-hover:rotate-12 transition-transform duration-300 shadow-lg`}>
+                                    <service.icon className="h-6 w-6" />
+                                </div>
+                                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center justify-between">
                                     {service.title}
-                                </dt>
-                                <dd className="mt-2 text-base leading-7 text-gray-600 dark:text-gray-300">{service.description}</dd>
+                                    <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-brand-500" />
+                                </h4>
+                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                                    {service.description}
+                                </p>
                             </motion.div>
                         ))}
-                    </dl>
+                    </motion.div>
+                </div>
+
+                {/* Marketing Services Row */}
+                <div>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+                        <span className="h-px w-8 bg-accent-500"></span>
+                        Digital Marketing
+                    </h3>
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                    >
+                        {marketingServices.map((service) => (
+                            <motion.div
+                                key={service.title}
+                                variants={itemVariants}
+                                className="card-modern group"
+                            >
+                                <div className={`h-12 w-12 rounded-2xl ${service.color} flex items-center justify-center text-white mb-6 group-hover:rotate-12 transition-transform duration-300 shadow-lg`}>
+                                    <service.icon className="h-6 w-6" />
+                                </div>
+                                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center justify-between">
+                                    {service.title}
+                                    <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-brand-500" />
+                                </h4>
+                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                                    {service.description}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </motion.div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
