@@ -72,7 +72,7 @@ const Hero = () => {
                                     href="/#work"
                                     className="btn-secondary w-full sm:w-auto text-center justify-center py-4 sm:py-3"
                                 >
-                                    View Our Work
+                                    What to Expect
                                 </motion.a>
                             </div>
                         </motion.div>
