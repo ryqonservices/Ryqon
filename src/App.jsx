@@ -1,25 +1,24 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import Showcase from './components/Showcase';
-import Process from './components/Process';
-import Contact from './components/Contact';
+import Home from './components/Home';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import Terms from './components/Terms';
 import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="bg-white dark:bg-gray-900 min-h-screen">
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <Showcase />
-        <Process />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="bg-white dark:bg-slate-950 min-h-screen flex flex-col">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<Terms />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

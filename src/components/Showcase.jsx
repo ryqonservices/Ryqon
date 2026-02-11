@@ -1,76 +1,87 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { CheckCircle2 } from 'lucide-react';
 
-const projects = [
+const expectations = [
     {
-        title: 'E-commerce Platform',
-        category: 'Web Development',
-        image: 'https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80',
-        description: 'A full-featured online store with payment integration and inventory management.',
+        title: 'Clear timelines & scope',
+        description: 'You\'ll know exactly what we\'re building, when it will be delivered, and what the milestones look like.',
     },
     {
-        title: 'Fitness Tracker App',
-        category: 'Mobile App',
-        image: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
-        description: 'Cross-platform mobile application for tracking workouts and nutrition.',
+        title: 'Honest recommendations',
+        description: 'We won\'t just say yes. We\'ll provide expert insights on what\'s best for your product and business goals.',
     },
     {
-        title: 'SaaS Dashboard',
-        category: 'Web Application',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-        description: 'Analytics dashboard for visualizing business metrics and performance.',
+        title: 'Direct communication',
+        description: 'No middle managers or technical jargon. Speak directly with the experts building your solution.',
+    },
+    {
+        title: 'No unnecessary upselling',
+        description: 'We focus on what you actually need to succeed, not on padding our invoices with features you won\'t use.',
     },
 ];
 
 const Showcase = () => {
     return (
-        <div className="bg-white dark:bg-gray-900 py-24 sm:py-32" id="work">
+        <section className="py-24 sm:py-32 bg-white dark:bg-slate-950" id="work">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">What We Build</h2>
-                    <p className="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                        Checkout some of our recent projects.
-                    </p>
+                <div className="mx-auto max-w-2xl text-center mb-16">
+                    <motion.h2
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="text-brand-600 dark:text-brand-400 font-bold tracking-tight text-sm uppercase mb-4"
+                    >
+                        Our Commitment
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl"
+                    >
+                        What You Can <span className="text-gradient">Expect</span>
+                    </motion.p>
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="mt-6 text-lg text-slate-600 dark:text-slate-400"
+                    >
+                        Working with Ryqon Digital Solutions means clarity, communication, and consistency from day one.
+                    </motion.p>
                 </div>
-                <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                    {projects.map((project, index) => (
-                        <motion.article
-                            key={project.title}
-                            className="flex flex-col items-start justify-between"
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+                    {expectations.map((item, index) => (
+                        <motion.div
+                            key={item.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
+                            className="relative flex gap-6 p-8 rounded-[2rem] bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 hover:border-brand-500/30 dark:hover:border-brand-500/30 transition-all duration-300 group"
                         >
-                            <div className="relative w-full">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2] shadow-md hover:shadow-xl transition-shadow duration-300"
-                                />
-                                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-                            </div>
-                            <div className="max-w-xl">
-                                <div className="mt-8 flex items-center gap-x-4 text-xs">
-                                    <span className="relative z-10 rounded-full bg-gray-50 dark:bg-gray-800 px-3 py-1.5 font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
-                                        {project.category}
-                                    </span>
-                                </div>
-                                <div className="group relative">
-                                    <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300">
-                                        <a href="#">
-                                            <span className="absolute inset-0" />
-                                            {project.title}
-                                        </a>
-                                    </h3>
-                                    <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 dark:text-gray-400">{project.description}</p>
+                            <div className="flex-shrink-0">
+                                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-400 group-hover:scale-110 transition-transform duration-300">
+                                    <CheckCircle2 className="h-6 w-6" aria-hidden="true" />
                                 </div>
                             </div>
-                        </motion.article>
+                            <div>
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                                    {item.title}
+                                </h3>
+                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                    {item.description}
+                                </p>
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

@@ -1,52 +1,88 @@
 import React from 'react';
-import { Lightbulb, Cog, CheckCircle, ArrowRight } from 'lucide-react';
+import { Lightbulb, Map, Code2, TrendingUp, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const steps = [
     {
-        name: 'Understand Requirements',
-        description: 'We start by listening to your ideas and understanding your business goals tailored to your specific needs.',
+        name: 'Understand',
+        description: 'We dive deep into your business goals, challenges, and target audience to build a solid foundation.',
         icon: Lightbulb,
+        color: 'text-yellow-500',
+        bg: 'bg-yellow-50',
     },
     {
-        name: 'Design & Develop',
-        description: 'Our team creates a roadmap and builds your product using agile methodologies, ensuring transparency.',
-        icon: Cog,
+        name: 'Plan',
+        description: 'We create a comprehensive roadmap and strategy, ensuring every step is aligned with your objectives.',
+        icon: Map,
+        color: 'text-blue-500',
+        bg: 'bg-blue-50',
     },
     {
-        name: 'Deliver & Support',
-        description: 'We launch your product and provide ongoing support to ensure it continues to perform optimally.',
-        icon: CheckCircle,
+        name: 'Build',
+        description: 'Our team brings the vision to life with clean code, modern design, and robust implementation.',
+        icon: Code2,
+        color: 'text-brand-600',
+        bg: 'bg-brand-50',
+    },
+    {
+        name: 'Grow',
+        description: 'We launch, monitor, and continuously optimise your product or campaign to drive real results.',
+        icon: TrendingUp,
+        color: 'text-accent-600',
+        bg: 'bg-accent-50',
     },
 ];
 
 const Process = () => {
     return (
-        <div className="bg-gray-50 dark:bg-gray-800 py-24 sm:py-32" id="process">
+        <section className="py-24 sm:py-32 bg-white dark:bg-slate-950" id="process">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl lg:text-center mb-16">
-                    <h2 className="text-base font-semibold leading-7 text-indigo-600 dark:text-indigo-400">How We Work</h2>
-                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                        Simple 3-Step Process
+                <div className="mx-auto max-w-2xl text-center mb-20">
+                    <h2 className="text-brand-600 font-bold tracking-tight text-sm uppercase mb-4 transition-all">Workflow</h2>
+                    <p className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+                        From Concept to <span className="text-gradient">Growth</span>
                     </p>
                 </div>
-                <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                    {steps.map((step, index) => (
-                        <div key={step.name} className="relative flex flex-col items-center p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-sm ring-1 ring-gray-200 dark:ring-gray-700">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600 text-white mb-6">
-                                <step.icon className="h-6 w-6" aria-hidden="true" />
-                            </div>
-                            <h3 className="text-lg font-semibold leading-8 text-gray-900 dark:text-white mb-2 text-center">{step.name}</h3>
-                            <p className="text-base leading-7 text-gray-600 dark:text-gray-300 text-center">{step.description}</p>
-                            {index < steps.length - 1 && (
-                                <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                                    <ArrowRight className="h-6 w-6 text-gray-300 dark:text-gray-600" />
+
+                <div className="relative">
+                    {/* Connection Line (Desktop horizontal) */}
+                    <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 dark:bg-slate-800 -translate-y-1/2 hidden lg:block" />
+
+                    {/* Vertical line for mobile */}
+                    <div className="absolute left-1/2 top-10 w-0.5 h-[80%] bg-slate-100 dark:bg-slate-800 -translate-x-1/2 lg:hidden" />
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
+                        {steps.map((step, index) => (
+                            <motion.div
+                                key={step.name}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.2 }}
+                                className="relative flex flex-col items-center text-center group"
+                            >
+                                <div className={`h-20 w-20 rounded-3xl ${step.bg} dark:bg-slate-900 border border-slate-100 dark:border-slate-800 flex items-center justify-center mb-8 relative z-10 group-hover:shadow-xl transition-all duration-300`}>
+                                    <step.icon className={`h-10 w-10 ${step.color}`} />
+                                    <div className="absolute -top-4 -right-4 h-8 w-8 rounded-full bg-white dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 flex items-center justify-center text-xs font-bold text-slate-400">
+                                        {index + 1}
+                                    </div>
                                 </div>
-                            )}
-                        </div>
-                    ))}
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">{step.name}</h3>
+                                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed max-w-[200px]">
+                                    {step.description}
+                                </p>
+
+                                {index < steps.length - 1 && (
+                                    <div className="hidden lg:block absolute top-10 left-[70%] w-full h-0 z-0">
+                                        <ArrowRight className="h-6 w-6 text-slate-200 dark:text-slate-800" />
+                                    </div>
+                                )}
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
