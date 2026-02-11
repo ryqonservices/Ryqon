@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Facebook, Linkedin, Twitter } from 'lucide-react';
+import { Instagram, Facebook, Linkedin } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -12,8 +12,18 @@ const Footer = () => {
                             Build Better. Market Smarter. Grow Faster. We are a specialized team focused on delivering high-impact digital solutions.
                         </p>
                         <div className="flex space-x-4">
-                            {[Instagram, Facebook, Linkedin, Twitter].map((Icon, i) => (
-                                <a key={i} href="#" className="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center border border-slate-800 hover:bg-brand-600 hover:border-brand-500 transition-all group">
+                            {[
+                                { Icon: Instagram, href: 'https://www.instagram.com/ryqon_services/' },
+                                { Icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61587584260076' },
+                                { Icon: Linkedin, href: 'https://www.linkedin.com/company/ryqon-services/about/?viewAsMember=true' }
+                            ].map(({ Icon, href }, i) => (
+                                <a
+                                    key={i}
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="h-10 w-10 rounded-full bg-slate-900 flex items-center justify-center border border-slate-800 hover:bg-brand-600 hover:border-brand-500 transition-all group"
+                                >
                                     <Icon className="h-5 w-5 text-slate-400 group-hover:text-white transition-colors" />
                                 </a>
                             ))}

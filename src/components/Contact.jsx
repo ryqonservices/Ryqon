@@ -1,6 +1,6 @@
 
 import React, { useRef, useState } from 'react';
-import { Mail, MessageCircle, Send, Phone, MapPin } from 'lucide-react';
+import { Mail, Send, Phone, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
 import { motion } from 'framer-motion';
@@ -84,9 +84,21 @@ const Contact = () => {
                                 </div>
 
                                 <div className="mt-16 pt-8 border-t border-white/10 flex gap-4">
-                                    <a href="https://wa.me/917994802431" className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
-                                        <MessageCircle className="h-6 w-6" />
-                                    </a>
+                                    {[
+                                        { Icon: Instagram, href: 'https://www.instagram.com/ryqon_services/' },
+                                        { Icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61587584260076' },
+                                        { Icon: Linkedin, href: 'https://www.linkedin.com/company/ryqon-services/about/?viewAsMember=true' }
+                                    ].map(({ Icon, href }, i) => (
+                                        <a
+                                            key={i}
+                                            href={href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                                        >
+                                            <Icon className="h-6 w-6" />
+                                        </a>
+                                    ))}
                                 </div>
                             </motion.div>
 
@@ -118,14 +130,19 @@ const Contact = () => {
                                     </div>
                                 </div>
                                 <div className="sm:col-span-2">
-                                    <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Email Address</label>
+                                    <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Phone Number</label>
                                     <input
-                                        type="email"
-                                        name="user_email"
+                                        type="tel"
+                                        name="user_phone"
                                         required
+                                        pattern="[0-9\+\-\s]{10,20}"
+                                        title="Please enter a valid phone number (10-20 digits)"
                                         className="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-brand-500 transition-all outline-none"
-                                        placeholder="john@example.com"
+                                        placeholder="Add your number here"
                                     />
+                                    <p className="mt-2 text-[10px] text-slate-500 dark:text-slate-400 italic uppercase tracking-wider font-semibold">
+                                        * Hint: Add your number with country code (e.g., +91)
+                                    </p>
                                 </div>
                                 <div className="sm:col-span-2">
                                     <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Project Details</label>
