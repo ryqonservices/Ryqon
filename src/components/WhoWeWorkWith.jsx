@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { CheckCircle2, Rocket, Users, Building2 } from 'lucide-react';
 import { motion } from 'framer-motion';

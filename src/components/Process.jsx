@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { Lightbulb, Map, Code2, TrendingUp, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
