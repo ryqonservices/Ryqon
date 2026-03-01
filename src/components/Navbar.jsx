@@ -34,7 +34,7 @@ const Navbar = () => {
                     className="flex lg:flex-1"
                 >
                     <a href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
-                        <img src="/Ryqon logo.png" alt="Ryqon Logo" className={`${scrolled ? 'h-16' : 'h-20'} w-auto transition-all duration-300`} />
+                        <img src="/ryqon_logo_black.svg" alt="Ryqon Logo" className={`${scrolled ? 'h-8' : 'h-8'} w-auto transition-all duration-300`} />
                     </a>
                 </motion.div>
 
