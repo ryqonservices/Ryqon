@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { Smartphone, Monitor, Database, Wrench, Megaphone, TrendingUp, Target, BarChart3, ArrowUpRight, Globe, Server, Share2 } from 'lucide-react';
 import { motion } from 'framer-motion';

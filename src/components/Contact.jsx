@@ -1,3 +1,4 @@
+"use client";
 
 import React, { useRef, useState } from 'react';
 import { Mail, Send, Phone, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
@@ -13,9 +14,9 @@ const Contact = () => {
         e.preventDefault();
         setLoading(true);
 
-        const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-        const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-        const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+        const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+        const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+        const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
         if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY || SERVICE_ID === "your_service_id_here") {
             toast.error("Please configure EmailJS credentials in .env file");
