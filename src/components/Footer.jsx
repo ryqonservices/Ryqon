@@ -7,9 +7,9 @@ const Footer = () => {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     <div className="md:col-span-2">
-                        <img src="/Ryqon logo.png" alt="Ryqon Digitals Logo" className="h-20 w-auto mb-6" />
+                        <img src="/Ryqon logo.png" alt="Ryqon Logo" className="h-20 w-auto mb-6" />
                         <p className="text-slate-400 text-lg max-w-sm mb-8">
-                            Ryqon Digitals: Build Better. Market Smarter. Grow Faster. We are a specialized team focused on delivering high-impact digital solutions.
+                            Build Better. Market Smarter. Grow Faster. We are a specialized team focused on delivering high-impact digital solutions.
                         </p>
                         <div className="flex space-x-4">
                             {[
@@ -51,10 +51,10 @@ const Footer = () => {
                 </div>
 
                 <div className="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-slate-500 text-sm">&copy; {new Date().getFullYear()} Ryqon Digitals. All rights reserved.</p>
+                    <p className="text-slate-500 text-sm">&copy; {new Date().getFullYear()} Ryqon. All rights reserved.</p>
                     <div className="flex gap-8">
                         <p className="text-slate-500 text-sm flex items-center gap-2">
-                            Built with Passion by <span className="text-white font-semibold italic">Ryqon Digitals</span>
+                            Built with Passion in <span className="text-white font-semibold italic">Hyderabad</span>
                         </p>
                     </div>
                 </div>

@@ -3,32 +3,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export const metadata = {
-  metadataBase: new URL('https://www.ryqondigitals.com'),
-  title: 'Ryqon Digitals | Build Better. Market Smarter. Grow Faster.',
-  description: 'Ryqon Digitals builds products that get results — From Web & Mobile Applications to Marketing Growth. Web, Mobile Apps & Marketing Solutions for Brands, Startups, and Small Businesses.',
-  keywords: ['Ryqon Digitals', 'Web Development', 'Mobile App Development', 'Digital Marketing', 'Software Solutions', 'Hyderabad Tech Agency'],
-  openGraph: {
-    title: 'Ryqon Digitals | Digital Solutions for Growth',
-    description: 'We Build Products That Get Results — From Web & Mobile Applications to Marketing Growth.',
-    url: 'https://www.ryqondigitals.com',
-    siteName: 'Ryqon Digitals',
-    images: [
-      {
-        url: '/site logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'Ryqon Digitals Logo',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Ryqon Digitals | Build Better. Market Smarter.',
-    description: 'Web, Mobile Apps & Marketing Solutions for Brands and Startups.',
-    images: ['/site logo.png'],
-  },
+  title: 'Ryqon | Build Better. Market Smarter. Grow Faster.',
+  description: 'We Build Products That Get Results — From Web & Mobile Applications to Marketing Growth. Web, Mobile Apps & Marketing Solutions for Brands, Startups, and Small Businesses.',
 };
 
 export default function RootLayout({ children }) {
@@ -44,51 +20,6 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="32x32" href="/ryqon_icon.svg" />
         <link rel="icon" type="image/png" sizes="192x192" href="/ryqon_icon.svg" />
         <link rel="apple-touch-icon" href="/ryqon_icon.svg" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              "name": "Ryqon Digitals",
-              "image": "https://www.ryqondigitals.com/site logo.png",
-              "@id": "https://www.ryqondigitals.com",
-              "url": "https://www.ryqondigitals.com",
-              "telephone": "",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "",
-                "addressLocality": "Hyderabad",
-                "addressRegion": "Telangana",
-                "postalCode": "",
-                "addressCountry": "IN"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 17.3850,
-                "longitude": 78.4867
-              },
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday"
-                ],
-                "opens": "09:00",
-                "closes": "18:00"
-              },
-              "sameAs": [
-                "https://www.instagram.com/ryqon_services/",
-                "https://www.facebook.com/profile.php?id=61587584260076",
-                "https://www.linkedin.com/company/ryqon-services/"
-              ]
-            })
-          }}
-        />
       </head>
       <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-white flex flex-col min-h-screen">
         <Navbar />
