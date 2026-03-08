@@ -46,9 +46,7 @@ const Hero = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
                         >
-                            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/50 border border-brand-100 dark:border-brand-900/50 text-brand-700 dark:text-brand-300 text-sm font-semibold mb-8">
-                                <Sparkles className="h-4 w-4" /> Trusted by Startups & Brands
-                            </span>
+
 
                             <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-7xl mb-6 leading-[1.1]">
                                 Build <span className="text-gradient">Better</span>. Market <span className="text-gradient">Smarter</span>.

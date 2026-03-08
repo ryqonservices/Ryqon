@@ -70,7 +70,7 @@ const Contact = () => {
                                         </div>
                                         <div>
                                             <p className="text-sm text-brand-200">Call Us</p>
-                                            <p className="font-bold">7994802431</p>
+                                            <p className="font-bold">+919000155767</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-4 items-center">

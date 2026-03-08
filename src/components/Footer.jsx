@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     <div className="md:col-span-2">
-                        <img src="/Ryqon logo.png" alt="Ryqon Digitals Logo" className="h-20 w-auto mb-6" />
+                        <img src="/ryqon_logo_black.svg" alt="Ryqon Digitals Logo" className="h-10 w-auto mb-6" />
                         <p className="text-slate-400 text-lg max-w-sm mb-8">
                             Ryqon Digitals: Build Better. Market Smarter. Grow Faster. We are a specialized team focused on delivering high-impact digital solutions.
                         </p>
