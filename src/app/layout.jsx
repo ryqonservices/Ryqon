@@ -1,6 +1,7 @@
 import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 export const metadata = {
   metadataBase: new URL('https://www.ryqondigitals.com'),
@@ -93,6 +94,7 @@ export default function RootLayout({ children }) {
       <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-white flex flex-col min-h-screen">
         <Navbar />
         {children}
+        <WhatsAppButton />
         <Footer />
       </body>
     </html>
