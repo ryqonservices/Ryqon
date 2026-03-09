@@ -5,9 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Services', href: '/#services' },
+    { name: 'Services', href: '/services' },
     { name: 'Commitment', href: '/#work' },
     { name: 'Process', href: '/#process' },
+    { name: 'FAQ', href: '/#faq' },
     { name: 'Contact', href: '/#contact' },
 ];
 
@@ -35,7 +36,8 @@ const Navbar = () => {
                     className="flex lg:flex-1"
                 >
                     <a href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
-                        <img src="/ryqon_logo_black.svg" alt="Ryqon Logo" className={`${scrolled ? 'h-8' : 'h-8'} w-auto transition-all duration-300`} />
+                        <img src="/Ryqon_logo.svg" alt="Ryqon Logo" className={`${scrolled ? 'h-8' : 'h-8'} w-auto transition-all duration-300 block dark:hidden`} />
+                        <img src="/ryqon_logo_black.svg" alt="Ryqon Logo" className={`${scrolled ? 'h-8' : 'h-8'} w-auto transition-all duration-300 hidden dark:block`} />
                     </a>
                 </motion.div>
 
