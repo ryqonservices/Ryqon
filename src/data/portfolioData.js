@@ -125,9 +125,9 @@ export const projects = [
     category: "mobile",
     url: "",
     description: "A clean and intuitive hotel booking mobile app that helps users discover, compare, and book hotels worldwide. Features a personalized home feed with popular and nearby listings, detailed hotel pages with facilities and photo galleries, smooth checkout flow with guest count and date selection.",
-    stack: ["Flutter", "Dart", "Firebase", "Node.js", "REST API", "Google Maps SDK", "Payment Gateway", "Cloud Firestore"],
+    stack: ["Flutter", "Dart", "Firebase", "Node.js", "REST API", "Google Maps SDK", "Payment Gateway", "Cloud Firestore "],
     folder: "/application",
-    video: "",
+    // video: "",
     images: [
       "/application/hotel application.webp"
     ],
