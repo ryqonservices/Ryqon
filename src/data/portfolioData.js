@@ -147,5 +147,27 @@ export const projects = [
       "/application/coffee application.png"
     ],
     result: ""
+  },
+  {
+    id: 10,
+    order: 10,
+    name: "Healthy Snack Brand — Content & Ads Strategy",
+    category: "marketing",
+    url: "",
+    description: "A full digital marketing strategy developed for a healthy snack brand struggling to stand out in a crowded market. The challenge: people want healthy snacks but keep buying junk food. The strategy tackled this by making healthy snacking feel crave-worthy — not restrictive. Included scroll-stopping content creation, craving-based Meta ad campaigns, and a simple discover-to-purchase funnel designed for fitness-focused millennials and late-night snackers aged 18–35.",
+    stack: ["Content Strategy", "Meta Ads", "Instagram Reels", "Craving-Based Positioning", "Funnel Design", "Visual Execution", "Lead Generation"],
+    folder: "/digital marketing/healthy food case study",
+    video: "",
+    images: [
+      "/digital marketing/healthy food case study/1.png",
+      "/digital marketing/healthy food case study/2.png",
+      "/digital marketing/healthy food case study/3.png",
+      "/digital marketing/healthy food case study/4.png",
+      "/digital marketing/healthy food case study/5.png",
+      "/digital marketing/healthy food case study/6.png",
+      "/digital marketing/healthy food case study/7.png"
+    ],
+    type: "casestudy",
+    result: "Scroll-stopping content strategy with craving-based positioning across content, ads, and funnel"
   }
 ];

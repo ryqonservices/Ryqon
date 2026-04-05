@@ -210,25 +210,23 @@ const PortfolioPage = () => {
                                             <button 
                                                 onClick={() => openLightbox(project, 0)}
                                                 className="px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 hover:bg-white/20 transition-all flex items-center gap-2"
-                                                title="View Gallery"
+                                                title={project.type === 'casestudy' ? "View Case Study" : "View Gallery"}
                                             >
                                                 <Layout className="w-5 h-5" />
-                                                <span>View Details</span>
+                                                <span>{project.type === 'casestudy' ? 'View Case Study →' : 'View Details'}</span>
                                             </button>
                                         )}
-                                        {project.url && project.category !== 'web' && (
-                                            <a 
-                                                href={project.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="px-6 py-3 bg-brand-600 rounded-full text-white hover:bg-brand-700 transition-all flex items-center gap-2"
-                                                onClick={(e) => e.stopPropagation()}
-                                            >
-                                                <ExternalLink className="w-5 h-5" />
-                                                <span>View Live</span>
-                                            </a>
-                                        )}
                                     </div>
+                                    
+                                    {/* Case Study Badge */}
+                                    {project.type === 'casestudy' && (
+                                        <div className="absolute top-4 right-4 z-20">
+                                            <span className="bg-amber-500 text-white text-[10px] font-black uppercase tracking-tighter px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-1.5 animate-pulse">
+                                                <Layers className="w-3 h-3" />
+                                                Case Study
+                                            </span>
+                                        </div>
+                                    )}
                                 </div>
 
                                 {/* Content Section */}
@@ -274,45 +272,59 @@ const PortfolioPage = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/95 backdrop-blur-xl"
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/98 backdrop-blur-2xl"
                         onClick={closeLightbox}
                     >
                         <button 
-                            className="absolute top-6 right-6 p-2 text-white/50 hover:text-white transition-colors z-[110]"
+                            className="absolute top-8 right-8 p-3 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all z-[110]"
                             onClick={closeLightbox}
                         >
-                            <X className="w-8 h-8" />
+                            <X className="w-10 h-10" />
                         </button>
 
-                        <div className="relative w-full max-w-6xl max-h-[85vh] flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+                        <div className="relative w-full max-w-7xl h-full flex items-center justify-center cursor-default" onClick={(e) => e.stopPropagation()}>
                             <button 
-                                className="absolute left-0 -ml-4 md:-ml-12 p-3 text-white/50 hover:text-white transition-colors disabled:opacity-20 z-[110]"
+                                className="absolute left-4 md:left-8 p-4 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all disabled:opacity-0 z-[110]"
                                 onClick={prevImage}
                                 disabled={lightboxProject?.images.length <= 1}
                             >
-                                <ChevronLeft className="w-10 h-10" />
+                                <ChevronLeft className="w-12 h-12" />
                             </button>
 
-                            <motion.img 
+                            <motion.div 
+                                className="w-full h-full flex items-center justify-center p-4 md:p-12"
+                                initial={{ x: 100, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                exit={{ x: -100, opacity: 0 }}
                                 key={lightboxImage}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                src={lightboxImage}
-                                alt="Gallery Preview"
-                                className="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl"
-                            />
+                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                drag="x"
+                                dragConstraints={{ left: 0, right: 0 }}
+                                onDragEnd={(e, { offset, velocity }) => {
+                                    const swipe = offset.x;
+                                    if (swipe < -100) nextImage(e);
+                                    else if (swipe > 100) prevImage(e);
+                                }}
+                            >
+                                <img 
+                                    src={lightboxImage}
+                                    alt="Case Study Slide"
+                                    className="max-w-full max-h-full object-contain rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/5"
+                                    draggable="false"
+                                />
+                            </motion.div>
 
                             <button 
-                                className="absolute right-0 -mr-4 md:-mr-12 p-3 text-white/50 hover:text-white transition-colors disabled:opacity-20 z-[110]"
+                                className="absolute right-4 md:right-8 p-4 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all disabled:opacity-0 z-[110]"
                                 onClick={nextImage}
                                 disabled={lightboxProject?.images.length <= 1}
                             >
-                                <ChevronRight className="w-10 h-10" />
+                                <ChevronRight className="w-12 h-12" />
                             </button>
                         </div>
                         
-                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-white/60 text-sm font-medium border border-white/10">
-                            {lightboxIndex + 1} / {lightboxProject?.images.length}
+                        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 px-6 py-2 bg-white/5 backdrop-blur-xl rounded-full text-white/80 text-sm font-bold border border-white/10 tracking-widest uppercase">
+                            Slide {lightboxIndex + 1} <span className="text-white/30 mx-2">/</span> {lightboxProject?.images.length}
                         </div>
                     </motion.div>
                 )}
