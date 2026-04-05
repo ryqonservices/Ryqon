@@ -16,17 +16,15 @@ import {
     Smartphone,
     Globe
 } from 'lucide-react';
-import { projects } from '../data/projects';
+import { projects } from '../data/portfolioData';
 
-// Stats data
 const stats = [
-    { label: 'Projects', value: '6+' },
+    { label: 'Projects', value: '9+' },
     { label: 'Service Areas', value: '3' },
     { label: 'Client Satisfaction', value: '100%' },
 ];
 
 const categories = [
-    { id: 'all', name: 'All' },
     { id: 'web', name: 'Web Development' },
     { id: 'mobile', name: 'Mobile Apps' },
     { id: 'marketing', name: 'Digital Marketing' },
@@ -42,7 +40,7 @@ const getCategoryColor = (category) => {
 };
 
 const PortfolioPage = () => {
-    const [activeFilter, setActiveFilter] = useState('all');
+    const [activeFilter, setActiveFilter] = useState('web');
     const [lightboxImage, setLightboxImage] = useState(null);
     const [lightboxIndex, setLightboxIndex] = useState(0);
     const [lightboxProject, setLightboxProject] = useState(null);
@@ -70,6 +68,7 @@ const PortfolioPage = () => {
 
     // Lightbox functions
     const openLightbox = (project, index) => {
+        if (!project.images || project.images.length === 0) return;
         setLightboxProject(project);
         setLightboxIndex(index);
         setLightboxImage(project.images[index]);
@@ -207,14 +206,28 @@ const PortfolioPage = () => {
                                     
                                     {/* Hover Overlay */}
                                     <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10">
-                                        <button 
-                                            onClick={() => openLightbox(project, 0)}
-                                            className="px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 hover:bg-white/20 transition-all flex items-center gap-2"
-                                            title="View Gallery"
-                                        >
-                                            <Layout className="w-5 h-5" />
-                                            <span>View Details</span>
-                                        </button>
+                                        {project.images && project.images.length > 0 && (
+                                            <button 
+                                                onClick={() => openLightbox(project, 0)}
+                                                className="px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 hover:bg-white/20 transition-all flex items-center gap-2"
+                                                title="View Gallery"
+                                            >
+                                                <Layout className="w-5 h-5" />
+                                                <span>View Details</span>
+                                            </button>
+                                        )}
+                                        {project.url && project.category !== 'web' && (
+                                            <a 
+                                                href={project.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="px-6 py-3 bg-brand-600 rounded-full text-white hover:bg-brand-700 transition-all flex items-center gap-2"
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
+                                                <ExternalLink className="w-5 h-5" />
+                                                <span>View Live</span>
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
 

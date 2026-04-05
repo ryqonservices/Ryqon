@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { projects } from '../data/projects';
+import { projects } from '../data/portfolioData';
 import { Globe, Smartphone, BarChart3, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const categories = [
     { id: 'web', name: 'Web', icon: Globe },
-    { id: 'app', name: 'App', icon: Smartphone },
+    { id: 'mobile', name: 'App', icon: Smartphone },
     { id: 'marketing', name: 'Digital Market', icon: BarChart3 }
 ];
 
@@ -126,7 +126,7 @@ const Projects = () => {
                                 >
                                     <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden mb-6 shadow-xl border border-slate-200 dark:border-slate-800">
                                         <img 
-                                            src={project.image} 
+                                            src={project.images && project.images.length > 0 ? project.images[0] : (project.video ? '' : '')} 
                                             alt={project.name}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                         />
