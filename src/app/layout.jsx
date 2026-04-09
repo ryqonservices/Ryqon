@@ -83,7 +83,7 @@ export default function RootLayout({ children }) {
                 "closes": "18:00"
               },
               "sameAs": [
-                "https://www.instagram.com/ryqon_services/",
+                "https://www.instagram.com/ryqon_digital/reels/?hl=en",
                 "https://www.facebook.com/profile.php?id=61587584260076",
                 "https://www.linkedin.com/company/ryqon-services/"
               ]

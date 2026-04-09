@@ -169,5 +169,27 @@ export const projects = [
     ],
     type: "casestudy",
     result: "Scroll-stopping content strategy with craving-based positioning across content, ads, and funnel"
+  },
+  {
+    id: 11,
+    order: 11,
+    name: "Aurelia Jewelry — Performance Marketing",
+    category: "marketing",
+    url: "",
+    description: "A high-end digital marketing strategy for Aurelia Jewelry focused on brand elevation and high-conversion ad campaigns. We developed a visual storytelling approach that highlights craftsmanship and elegance, paired with precision-targeted Meta and Google ads to reach luxury-seeking audiences. The campaign focused on seasonal collections and gifting occasions, driving significant increases in both website traffic and bridal jewelry inquiries.",
+    stack: ["Luxury Branding", "Social Media Strategy", "Meta Ads", "Visual Content Creation", "Conversion Tracking", "High-End Positioning", "E-commerce Optimization"],
+    folder: "/digital marketing/jewellry case study",
+    video: "",
+    images: [
+      "/digital marketing/jewellry case study/1.png",
+      "/digital marketing/jewellry case study/2.png",
+      "/digital marketing/jewellry case study/3.png",
+      "/digital marketing/jewellry case study/4.png",
+      "/digital marketing/jewellry case study/5.png",
+      "/digital marketing/jewellry case study/6.png",
+      "/digital marketing/jewellry case study/7.png"
+    ],
+    type: "casestudy",
+    result: "Elevated brand positioning and high-conversion ad strategy resulting in increased high-ticket inquiries."
   }
 ];

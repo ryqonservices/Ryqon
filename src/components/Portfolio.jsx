@@ -19,7 +19,7 @@ import {
 import { projects } from '../data/portfolioData';
 
 const stats = [
-    { label: 'Projects', value: '9+' },
+    { label: 'Projects', value: '11+' },
     { label: 'Service Areas', value: '3' },
     { label: 'Client Satisfaction', value: '100%' },
 ];
