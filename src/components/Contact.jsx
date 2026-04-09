@@ -86,7 +86,7 @@ const Contact = () => {
 
                                 <div className="mt-16 pt-8 border-t border-white/10 flex gap-4">
                                     {[
-                                        { Icon: Instagram, href: 'https://www.instagram.com/ryqon_services/' },
+                                        { Icon: Instagram, href: 'https://www.instagram.com/ryqon_digital/reels/?hl=en' },
                                         { Icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61587584260076' },
                                         { Icon: Linkedin, href: 'https://www.linkedin.com/company/ryqon-services/about/?viewAsMember=true' }
                                     ].map(({ Icon, href }, i) => (

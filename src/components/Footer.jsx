@@ -13,7 +13,7 @@ const Footer = () => {
                         </p>
                         <div className="flex space-x-4">
                             {[
-                                { Icon: Instagram, href: 'https://www.instagram.com/ryqon_services/' },
+                                { Icon: Instagram, href: 'https://www.instagram.com/ryqon_digital/reels/?hl=en' },
                                 { Icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61587584260076' },
                                 { Icon: Linkedin, href: 'https://www.linkedin.com/company/ryqon-services/about/?viewAsMember=true' }
                             ].map(({ Icon, href }, i) => (
