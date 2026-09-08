@@ -37,8 +37,8 @@ const Navbar = () => {
                     className="flex lg:flex-1"
                 >
                     <a href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
-                        <img src="/Ryqon_logo.svg" alt="Ryqon Logo" className={`${scrolled ? 'h-8' : 'h-8'} w-auto transition-all duration-300 block dark:hidden`} />
-                        <img src="/ryqon_logo_black.svg" alt="Ryqon Logo" className={`${scrolled ? 'h-8' : 'h-8'} w-auto transition-all duration-300 hidden dark:block`} />
+                        <img src="/logo-light.png" alt="Ryqon Digitals Logo" className={`${scrolled ? 'h-[40px]' : 'h-[52px]'} w-auto transition-all duration-300 block dark:hidden object-contain`} />
+                        <img src="/logo-dark.png" alt="Ryqon Digitals Logo" className={`${scrolled ? 'h-[40px]' : 'h-[52px]'} w-auto transition-all duration-300 hidden dark:block object-contain`} />
                     </a>
                 </motion.div>
 
@@ -91,8 +91,9 @@ const Navbar = () => {
                         className="fixed inset-0 z-50 bg-white dark:bg-slate-950 px-6 py-6 lg:hidden"
                     >
                         <div className="flex items-center justify-between">
-                            <a href="/" className="-m-1.5 p-1.5">
-                                <img src="/Ryqon logo.png" alt="Ryqon Logo" className="h-16 w-auto" />
+                            <a href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
+                                <img src="/logo-light.png" alt="Ryqon Digitals Logo" className="h-[52px] w-auto block dark:hidden object-contain" />
+                                <img src="/logo-dark.png" alt="Ryqon Digitals Logo" className="h-[52px] w-auto hidden dark:block object-contain" />
                             </a>
                             <button
                                 type="button"
