@@ -15,15 +15,9 @@ export const metadata = {
     siteName: 'Ryqon Digitals',
     images: [
       {
-<<<<<<< HEAD
         url: '/logo-dark.png',
         width: 1024,
         height: 1024,
-=======
-        url: '/ryqon_logo_new.png',
-        width: 1200,
-        height: 630,
->>>>>>> origin/main
         alt: 'Ryqon Digitals Logo',
       },
     ],
@@ -34,11 +28,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Ryqon Digitals | Build Better. Market Smarter.',
     description: 'Web, Mobile Apps & Marketing Solutions for Brands and Startups.',
-<<<<<<< HEAD
     images: ['/logo-dark.png'],
-=======
-    images: ['/ryqon_logo_new.png'],
->>>>>>> origin/main
   },
   icons: {
     icon: [
@@ -68,7 +58,6 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
-<<<<<<< HEAD
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -79,11 +68,6 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#233be2" />
-=======
-        <link rel="icon" type="image/png" sizes="32x32" href="/ryqon_favicon.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/ryqon_favicon.png" />
-        <link rel="apple-touch-icon" href="/ryqon_favicon.png" />
->>>>>>> origin/main
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -91,11 +75,7 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
               "name": "Ryqon Digitals",
-<<<<<<< HEAD
               "image": "https://www.ryqondigitals.com/logo-dark.png",
-=======
-              "image": "https://www.ryqondigitals.com/ryqon_logo_new.png",
->>>>>>> origin/main
               "@id": "https://www.ryqondigitals.com",
               "url": "https://www.ryqondigitals.com",
               "telephone": "",
