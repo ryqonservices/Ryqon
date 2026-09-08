@@ -37,8 +37,7 @@ const Navbar = () => {
                     className="flex lg:flex-1"
                 >
                     <a href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
-                        <img src="/Ryqon_logo.svg" alt="Ryqon Logo" className={`${scrolled ? 'h-8' : 'h-8'} w-auto transition-all duration-300 block dark:hidden`} />
-                        <img src="/ryqon_logo_black.svg" alt="Ryqon Logo" className={`${scrolled ? 'h-8' : 'h-8'} w-auto transition-all duration-300 hidden dark:block`} />
+                        <img src="/ryqon_logo_new.png" alt="Ryqon Logo" className={`${scrolled ? 'h-20' : 'h-24'} w-auto transition-all duration-300`} />
                     </a>
                 </motion.div>
 
@@ -92,7 +91,7 @@ const Navbar = () => {
                     >
                         <div className="flex items-center justify-between">
                             <a href="/" className="-m-1.5 p-1.5">
-                                <img src="/Ryqon logo.png" alt="Ryqon Logo" className="h-16 w-auto" />
+                                <img src="/ryqon_logo_new.png" alt="Ryqon Logo" className="h-20 w-auto" />
                             </a>
                             <button
                                 type="button"
