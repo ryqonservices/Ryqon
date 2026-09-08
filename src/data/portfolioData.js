@@ -106,51 +106,67 @@ export const projects = [
   {
     id: 7,
     order: 7,
-    name: "ChatFlow — Messaging App",
+    name: "4 Sides Play — Flagship OTT Platform",
     category: "mobile",
-    url: "",
-    description: "A modern, feature-rich mobile messaging application with real-time chat, voice and video calls, group conversations, story updates, and end-to-end encryption. Built with a sleek dark-themed UI delivering a premium communication experience.",
-    stack: ["Flutter", "Dart", "Firebase", "Node.js", "WebRTC", "Push Notifications", "End-to-End Encryption", "Real-time Database"],
+    url: "https://play.google.com/store/apps",
+    description: "Flagship multi-platform OTT streaming application (Android & iOS) featuring South Indian movie streaming, live news broadcast, and subscription-based on-demand video streaming with 100K+ downloads on Google Play. Built with clean architecture, BLoC state management, and high-performance video delivery.",
+    stack: ["Flutter", "Dart", "BLoC", "Clean Architecture", "REST APIs", "Video Streaming", "Stripe & In-App Subscriptions", "Cloudinary"],
     folder: "/application",
     video: "",
     images: [
-      "/application/chat application.png"
+      "/application/4sides.png"
     ],
-    result: ""
+    result: "100K+ Downloads (Google Play & App Store)"
   },
   {
     id: 8,
     order: 8,
-    name: "StayEase — Hotel Booking App",
+    name: "Gradiente Music — Music Streaming App",
     category: "mobile",
-    url: "",
-    description: "A clean and intuitive hotel booking mobile app that helps users discover, compare, and book hotels worldwide. Features a personalized home feed with popular and nearby listings, detailed hotel pages with facilities and photo galleries, smooth checkout flow with guest count and date selection.",
-    stack: ["Flutter", "Dart", "Firebase", "Node.js", "REST API", "Google Maps SDK", "Payment Gateway", "Cloud Firestore "],
+    url: "https://play.google.com/store/apps",
+    description: "Feature-rich music streaming application with comprehensive playlist management, premium subscription tier, secure authentication (email/phone), in-app purchases, and high-fidelity ad-free audio streaming with background playback controls.",
+    stack: ["Flutter", "Dart", "Audio Streaming", "In-App Purchases", "State Management", "REST APIs", "Firebase Auth", "Hive"],
     folder: "/application",
-    // video: "",
+    video: "",
     images: [
-      "/application/hotel application.webp"
+      "/application/gradiente music.png"
     ],
-    result: ""
+    result: "Play Store Release & Premium Tier"
   },
   {
     id: 9,
     order: 9,
-    name: "BrewMate — Coffee Ordering App",
+    name: "Drama Chaska — Short-Form Movie Reels App",
     category: "mobile",
-    url: "",
-    description: "A beautifully designed coffee ordering mobile app where users can browse the full menu, customize their drinks, track orders in real time, and manage loyalty rewards. Smooth UI animations and a warm brand aesthetic make BrewMate a delightful experience.",
-    stack: ["Flutter", "Dart", "Firebase", "Node.js", "Stripe Payments", "Real-time Order Tracking", "Push Notifications", "Cloud Functions"],
+    url: "https://play.google.com/store/apps",
+    description: "High-engagement short-form movie reel discovery application with personalized recommendations, bookmarking, social interactions (likes, comments, follows), and seamless HD video playback across an expansive reel catalog.",
+    stack: ["Flutter", "Dart", "Video Caching", "Social Features", "Personalized Recommendations", "Clean Architecture", "REST APIs"],
     folder: "/application",
     video: "",
     images: [
-      "/application/coffee application.png"
+      "/application/drama  chaska.png"
     ],
-    result: ""
+    result: "Play Store Release & High Engagement"
   },
   {
     id: 10,
     order: 10,
+    name: "Caffora — Coffee Ordering & Dual Fulfillment",
+    category: "mobile",
+    url: "https://github.com",
+    description: "End-to-end coffee ordering platform supporting dual fulfillment workflows — in-store pickup and home delivery. Features complete cart & checkout experience, live order tracking, paired with real-time merchant admin management using Firebase Auth, Cloud Firestore, and FCM notifications.",
+    stack: ["Flutter", "Dart", "Firebase Auth", "Cloud Firestore", "FCM Push Notifications", "Real-Time Tracking", "Clean Architecture"],
+    folder: "/application",
+    video: "",
+    images: [
+      "/application/caffora.png",
+      "/application/caffora admin.png"
+    ],
+    result: "Dual Fulfillment & Real-Time Order Tracking"
+  },
+  {
+    id: 11,
+    order: 11,
     name: "Healthy Snack Brand — Content & Ads Strategy",
     category: "marketing",
     url: "",
@@ -171,8 +187,8 @@ export const projects = [
     result: "Scroll-stopping content strategy with craving-based positioning across content, ads, and funnel"
   },
   {
-    id: 11,
-    order: 11,
+    id: 12,
+    order: 12,
     name: "Aurelia Jewelry — Performance Marketing",
     category: "marketing",
     url: "",

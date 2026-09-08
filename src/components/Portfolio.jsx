@@ -19,7 +19,7 @@ import {
 import { projects } from '../data/portfolioData';
 
 const stats = [
-    { label: 'Projects', value: '11+' },
+    { label: 'Projects', value: '12+' },
     { label: 'Service Areas', value: '3' },
     { label: 'Client Satisfaction', value: '100%' },
 ];
@@ -181,10 +181,15 @@ const PortfolioPage = () => {
                                 className="group relative flex flex-col h-full card-modern !p-0 overflow-hidden"
                             >
                                 {/* Media Section */}
-                                <div className="relative aspect-[16/10] overflow-hidden bg-slate-200 dark:bg-slate-800">
+                                <div 
+                                    className="relative aspect-[16/10] overflow-hidden bg-slate-200 dark:bg-slate-800 cursor-pointer"
+                                    onClick={() => openLightbox(project, 0)}
+                                >
                                     {project.video ? (
                                         <video 
                                             src={project.video}
+                                            poster={project.images && project.images.length > 0 ? project.images[0] : undefined}
+                                            preload="metadata"
                                             autoPlay
                                             muted
                                             loop
@@ -193,15 +198,15 @@ const PortfolioPage = () => {
                                             onError={(e) => {
                                                 // Fallback to image if video fails or is missing
                                                 e.target.style.display = 'none';
-                                                e.target.nextSibling.style.display = 'block';
+                                                if (e.target.nextSibling) e.target.nextSibling.style.display = 'block';
                                             }}
                                         />
                                     ) : null}
                                     <img 
-                                        src={project.images[0]} 
+                                        src={project.images && project.images.length > 0 ? project.images[0] : ''} 
                                         alt={project.name}
-                                        className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${project.video ? 'hidden' : 'block hover:cursor-pointer'}`}
-                                        onClick={() => project.video ? null : openLightbox(project, 0)}
+                                        loading="lazy"
+                                        className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${project.video ? 'hidden' : 'block'}`}
                                     />
                                     
                                     {/* Hover Overlay */}
